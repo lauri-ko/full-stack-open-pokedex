@@ -107,19 +107,6 @@ describe('<PokemonPage />', () => {
     expect(screen.getByTestId('stats')).toHaveTextContent('hp55attack55')
   })
 
-  it('should render previous and next urls if they exist', async () => {
-    axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
-
-    await act(async () => {
-      render(
-        <Router history={history}>
-          <PokemonPage previous={previous} next={next} />
-        </Router>
-      )
-    })
-
-  })
-
   it('should not render previous and next urls if none exist', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList })
 
